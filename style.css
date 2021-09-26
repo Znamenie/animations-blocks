@@ -1,0 +1,124 @@
+body {
+    font-size: 15pt;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.adaptive {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-gap: 20px;
+  color: #FFFFFF;
+  font-size: 64px;
+  max-width: 1100px;
+}
+
+.adaptive__item {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  background-color: red;
+  width: 352px;
+  height: 352px;
+  animation-name: swipeBg;
+  animation-duration: 6s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-timing-function: steps(1, end);
+}
+
+.adaptive__item:last-child {
+  margin-right: 0;
+  margin-bottom: 0;
+}
+
+.a1-item {
+  animation-delay: 6s;
+  grid-column-start: 1;
+  grid-row-start: 1;
+  grid-row-end: 1;
+}
+
+.a2-item {
+  animation-delay: 1s;
+  grid-column-start: 1;
+  grid-row-start: 3;
+  grid-row-end: 3;
+}
+
+.a3-item {
+  animation-delay: 2.5s;
+  grid-column-start: 2;
+  grid-row-start: 2;
+  grid-row-end: 2;
+}
+
+.a4-item {
+  animation-delay: 3s;
+  grid-column-start: 2;
+  grid-row-start: 3;
+  grid-row-end: 3;
+}
+
+.a5-item {
+  animation-delay: 8s;
+  grid-column-start: 3;
+  grid-row-start: 2;
+  grid-row-end: 2;
+}
+
+.a6-item {
+  animation-delay: 4s;
+  grid-column-start: 3;
+  grid-row-start: 1;
+  grid-row-end: 1;
+}
+
+@keyframes swipeBg {
+  0% {
+      background-color: #FF0000;
+  }
+  33% {
+      background-color: #0500FF;
+  }
+  66% {
+      background-color: #52FF00;
+  }
+  100% {
+      background-color: #FF0000;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .adaptive {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+
+  .adaptive__item {
+    grid-column-start: auto;
+    grid-row-start: auto;
+    grid-row-end: auto;
+  }  
+}
+
+@media screen and (max-width: 740px) {
+  .adaptive {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+  }  
+}
